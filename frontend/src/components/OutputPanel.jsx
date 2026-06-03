@@ -61,10 +61,21 @@ export default function OutputPanel({ result }) {
             </div>
             <p style={{ margin: "4px 0", color: "#444", fontSize: 14 }}>{item.explanation}</p>
             {item.fix && (
-              <pre style={{ background: "#f4f4f4", padding: 10, borderRadius: 6, fontSize: 13, overflowX: "auto" }}>
-                {item.fix}
-              </pre>
-            )}
+  <pre style={{ 
+    background: "#1e1e1e", 
+    color: "#d4d4d4",
+    padding: 16, 
+    borderRadius: 8, 
+    fontSize: 13, 
+    overflowX: "auto",
+    lineHeight: "1.6",
+    whiteSpace: "pre-wrap",
+    wordBreak: "break-word",
+    fontFamily: "Courier New, monospace"
+  }}>
+    {item.fix.replace(/\\n/g, '\n').replace(/\\t/g, '    ')}
+  </pre>
+)}
           </>
         )}
       />
@@ -79,12 +90,31 @@ export default function OutputPanel({ result }) {
               <ImpactBadge level={item.impact} />
               <span style={{ color: "#888", fontSize: 13, marginLeft: 8 }}>Line {item.line}</span>
             </div>
-            <p style={{ margin: "4px 0", color: "#444", fontSize: 14 }}>{item.explanation}</p>
+            <p style={{ 
+  margin: "4px 0 12px 0", 
+  color: "#444", 
+  fontSize: 14, 
+  lineHeight: "1.7",
+  textAlign: "left"
+}}>
+  {item.explanation}
+</p>
             {item.fix && (
-              <pre style={{ background: "#f4f4f4", padding: 10, borderRadius: 6, fontSize: 13, overflowX: "auto" }}>
-                {item.fix}
-              </pre>
-            )}
+  <pre style={{ 
+    background: "#1e1e1e", 
+    color: "#d4d4d4",
+    padding: 16, 
+    borderRadius: 8, 
+    fontSize: 13, 
+    overflowX: "auto",
+    lineHeight: "1.6",
+    whiteSpace: "pre-wrap",
+    wordBreak: "break-word",
+    fontFamily: "Courier New, monospace"
+  }}>
+    {item.fix.replace(/\\n/g, '\n').replace(/\\t/g, '    ')}
+  </pre>
+)}
           </>
         )}
       />

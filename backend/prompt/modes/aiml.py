@@ -61,6 +61,28 @@ CRITICAL RULES FOR OUTPUT:
   cache line = 64 bytes holds 8 float64, utilization = 1/8 = 12.5%. STATE THIS.
 - Maximum 6 findings total across the entire architecture section
 
+OUTPUT QUALITY REQUIREMENTS — NON NEGOTIABLE:
+- explanation field: exactly 3 sentences minimum.
+  Sentence 1: state the specific problem and where it is.
+  Sentence 2: explain the consequence — what breaks, how badly, with numbers.
+  Sentence 3: state the principle behind the fix, not just the fix itself.
+- fix field: ALWAYS contain actual working corrected code.
+  Never write "use X" or "consider Y" — write the actual code.
+  Show the corrected version of the exact lines that have the problem.
+- issue field: NEVER use vague words alone.
+  "slow" must be followed by how slow. "inefficient" must be followed by complexity.
+  "bad name" must be followed by what it fails to communicate.
+
+CODE FORMATTING REQUIREMENTS:
+- fix field: always write code with proper newlines and indentation
+- Never return code as a single line
+- Each statement on its own line
+- Proper indentation as it would appear in a real file
+- Example of WRONG: "try: x = 1; except: return None"
+- Example of CORRECT:
+  "try:\n    x = 1\nexcept Exception as e:\n    print(e)\n    return None"
+
+
 OUTPUT FORMAT (strict JSON):
 {
   "naming": [
