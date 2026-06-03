@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+groq
+tree-sitter
+tree-sitter-python
+pydantic
+python-dotenv
