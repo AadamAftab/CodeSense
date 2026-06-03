@@ -85,4 +85,4 @@ logs/
 # Misc
 *.bak
 *.tmp
-*.temp
+*.tempbackend/.env

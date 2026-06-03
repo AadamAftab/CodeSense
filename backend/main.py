@@ -7,6 +7,7 @@ from gpt.client import analyze
 from dotenv import load_dotenv
 load_dotenv()
 
+
 app = FastAPI()
 app.add_middleware(CORSMiddleware, allow_origins=["*"],
                    allow_methods=["*"], allow_headers=["*"])
