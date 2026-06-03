@@ -8,7 +8,7 @@ client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 def analyze(system_prompt: str, user_prompt: str) -> dict:
     response = client.chat.completions.create(
-        model="llama-3.1-70b-versatile",  # best free model for code
+        model="llama-3.3-70b-versatile",  # best free model for code
         messages=[
             {"role": "system", "content": system_prompt},
             {"role": "user",   "content": user_prompt}
