@@ -4,6 +4,7 @@ from pydantic import BaseModel
 from tree_parser.python_parser import parse_python
 from prompt.builder import build_prompt
 from gpt.client import analyze
+from output.formatter import clean_output
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -21,4 +22,5 @@ async def analyze_code(req: AnalyzeRequest):
     ast_data     = parse_python(req.code)
     system, user = build_prompt(req.code, ast_data, req.mode)
     result       = analyze(system, user)
+    result= clean_output(result)
     return result
