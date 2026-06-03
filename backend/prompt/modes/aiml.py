@@ -24,6 +24,13 @@ SECTION 3 — ARCHITECTURE & PERFORMANCE
 Reason about hardware and computational efficiency:
 - Flag Python loops that should be replaced with vectorized NumPy/PyTorch ops
   and quantify the speedup (Python bytecode ~75ns/op vs BLAS DGEMM via AVX-512)
+- You MUST include specific numbers: Python bytecode ~75ns/op,
+  BLAS DGEMM via AVX-512 processes 16 float32 per cycle,
+  state the exact speedup multiplier (e.g. 300x)
+- For cache issues you MUST state: cache line = 64 bytes,
+  current utilization percentage, stride in bytes
+- For batch processing you MUST calculate memory traffic:
+  number of samples x weight matrix size = total GB moved
 - Identify cache-unfriendly memory access patterns — explain in terms of
   64-byte cache lines, stride, and cache utilization percentage
 - Flag sample-by-sample processing that should be batched — explain the
